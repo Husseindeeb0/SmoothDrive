@@ -1,0 +1,142 @@
+:root {
+  /* Core Theme Colors */
+  --bg-color: #0a0a0a;
+  --surface-color: #1a1a1a;
+  --accent-color: #3b82f6;
+  --accent-glow: rgba(59, 130, 246, 0.5);
+  --gold-accent: #ffd700;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --text-muted: #dddddd;
+
+  /* Gradient */
+  --hero-gradient: radial-gradient(circle at top right, #1e1e2f, #0a0a0a);
+
+  /* Typography */
+  --font-main: "Inter", sans-serif;
+  --font-display: "Outfit", sans-serif;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--hero-gradient);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 20px 0;
+}
+
+h2 {
+  font-family: var(--font-display);
+  text-align: center;
+  color: var(--accent-color);
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
+table {
+  border-collapse: collapse;
+  width: 750px;
+  margin: 20px auto;
+  background: var(--surface-color);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 18px var(--accent-glow);
+}
+
+th,
+td {
+  border: 1px solid #333;
+  padding: 14px;
+  text-align: center;
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
+tr:hover {
+  background-color: var(--accent-glow);
+}
+
+th {
+  background: #111;
+  color: var(--accent-color);
+  font-family: var(--font-display);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+img {
+  width: 120px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* Animations */
+.from-left {
+  opacity: 0;
+  transform: translateX(-350px);
+  animation: slideLeft 0.9s forwards;
+}
+
+.bg-glow {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: var(--accent-color);
+  filter: blur(150px);
+  opacity: 0.5;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.glow-1 {
+  top: -200px;
+  right: -100px;
+}
+.glow-2 {
+  bottom: -200px;
+  left: -100px;
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-350px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.from-right {
+  opacity: 0;
+  transform: translateX(350px);
+  animation: slideRight 0.9s forwards;
+}
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(350px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.d1 {
+  animation-delay: 0.2s;
+}
+.d2 {
+  animation-delay: 0.4s;
+}
+.d3 {
+  animation-delay: 0.6s;
+}
+.d4 {
+  animation-delay: 0.8s;
+}
