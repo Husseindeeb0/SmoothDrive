@@ -1,13 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Animation on load
-  const animatedElements = document.querySelectorAll(".scroll-animate");
-  animatedElements.forEach((el) => {
-    // Small delay to ensure smooth entry
-    setTimeout(() => {
-      el.classList.add("visible");
-    }, 100);
-  });
-
   // Signup Form Submission Interaction (Visual only)
   const signupForm = document.getElementById("signupForm");
   if (signupForm) {
