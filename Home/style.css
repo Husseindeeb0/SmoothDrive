@@ -9,9 +9,6 @@
   --text-secondary: #a0a0a0;
   --text-muted: #dddddd;
 
-  /* Gradient */
-  --hero-gradient: radial-gradient(circle at top right, #1e1e2f, #0a0a0a);
-
   /* Typography */
   --font-main: "Inter", sans-serif;
   --font-display: "Outfit", sans-serif;
@@ -19,7 +16,7 @@
 
 body {
   font-family: var(--font-main);
-  background: var(--hero-gradient);
+  background: black;
   color: var(--text-primary);
   margin: 0;
   padding: 20px 0;
@@ -29,7 +26,7 @@ h2 {
   font-family: var(--font-display);
   text-align: center;
   color: var(--accent-color);
-  text-shadow: 0 0 10px var(--accent-glow);
+  text-shadow: 0 0 10px var(--accent-color);
 }
 
 table {
@@ -52,7 +49,7 @@ td {
 }
 
 tr:hover {
-  background-color: var(--accent-glow);
+  background-color: rgba(59, 131, 246, 0.107);
 }
 
 th {
@@ -139,4 +136,85 @@ img:hover {
 }
 .d4 {
   animation-delay: 0.8s;
+}
+
+@media (max-width: 768px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  table {
+    width: 100%;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    background: var(--surface-color);
+    border: 1px solid #333;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  td {
+    border: none;
+    border-bottom: 1px solid #333;
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  td:before {
+    position: absolute;
+    left: 15px;
+    width: 45%;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+    color: var(--accent-color);
+  }
+
+  /* Add Labels based on column index */
+  td:nth-of-type(1):before {
+    content: "Vehicle";
+  }
+  td:nth-of-type(2):before {
+    content: "Make";
+  }
+  td:nth-of-type(3):before {
+    content: "Name";
+  }
+  td:nth-of-type(4):before {
+    content: "Year";
+  }
+  td:nth-of-type(5):before {
+    content: "Quantity";
+  }
+  td:nth-of-type(6):before {
+    content: "Price";
+  }
+
+  /* Fix for image column */
+  td:nth-of-type(1) {
+    justify-content: center;
+    padding: 10px;
+  }
+  td:nth-of-type(1):before {
+    display: none;
+  } /* Hide label for image */
 }

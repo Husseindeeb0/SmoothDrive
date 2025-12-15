@@ -1,0 +1,366 @@
+:root {
+  --bg-color: #0a0a0a;
+  --surface-color: #1a1a1a;
+  --accent-color: #3b82f6;
+  --accent-glow: rgba(59, 130, 246, 0.5);
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --text-muted: #dddddd;
+  --gold-accent: #ffd700;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* background-image: linear-gradient(
+      45deg,
+      #000 25%,
+      transparent 25%,
+      transparent 75%,
+      #000 75%,
+      #000
+    ),
+    linear-gradient(
+      45deg,
+      #000 25%,
+      transparent 25%,
+      transparent 75%,
+      #000 75%,
+      #000
+    ); */
+  background-color: black;
+  background-position: 0 0, 10px 10px;
+  color: #f0f0f0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  /* Prevent horizontal scroll from animations */
+  padding: 20px;
+}
+
+.team-card img {
+  width: 100%;
+  height: 50px;
+}
+.team-row {
+  display: flex;
+  flex-wrap: wrap;
+  /* allows cards to go right then wrap down */
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.team-card {
+  width: 300px;
+  background: linear-gradient(145deg, #2b2b2b, #1e1e1e);
+  border: 1px solid #444;
+  border-radius: 15px;
+  color: white;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin: 20px;
+  padding: 30px 20px;
+  opacity: 0;
+  animation: slideUpFade 0.8s forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Staggered Animation Delays */
+.team-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.team-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.team-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.team-card:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.team-card:nth-child(5) {
+  animation-delay: 1s;
+}
+
+/* Hover animation - "Headlights" Glow */
+.team-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0px 40px var(--accent-color), inset 0 0 20px var(--accent-color); /* Inner shadow */
+  border-color: var(--accent-color);
+}
+
+.bg-glow {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: var(--accent-color);
+  filter: blur(150px);
+  opacity: 0.5;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.glow-1 {
+  top: -200px;
+  right: -100px;
+}
+.glow-2 {
+  bottom: -200px;
+  left: -100px;
+}
+
+/* Entrance Animation Keyframes */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Profile circle */
+/* Profile circle - "Wheel Hub" Style */
+.profile-badge {
+  width: 70px;
+  height: 70px;
+  background: #333;
+  border: 4px solid silver;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 800;
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  /* Center the badge */
+  transform: translateX(-50%);
+  color: #f0f0f0;
+  box-shadow: 0 0 0 4px #222, 0 0 15px rgba(0, 0, 0, 0.5);
+  /* Tire look */
+  z-index: 2;
+}
+
+/* Rotate badge on card hover like a wheel */
+.team-card:hover .profile-badge {
+  transform: translateX(-50%) rotate(360deg);
+  transition: transform 0.6s ease-in-out;
+  color: var(--gold-accent);
+  border: 4px solid var(--gold-accent);
+}
+
+/* Title + Role */
+.name {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 15px 0 5px;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, var(--accent-color), var(--gold-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(58, 112, 248, 0.3);
+}
+
+.role {
+  font-size: 16px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: var(--gold-accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Tag bubble */
+.tag {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px 12px;
+  border-radius: 10px;
+  display: inline-block;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+/* Text */
+.description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #cccccc;
+  margin-top: 10px;
+}
+
+button i {
+  font-size: 100px;
+  margin: 30px;
+  transition: 0.3s;
+}
+
+.appear {
+  margin: 2%;
+  border-radius: 5%;
+  overflow: visible;
+}
+
+button a {
+  text-decoration: none;
+}
+
+button i:hover {
+  transform: scale(1.2);
+  color: #ff4081;
+  /* change hover color */
+}
+
+.appear a {
+  display: none;
+}
+
+.appear:hover a {
+  display: block;
+}
+
+/* --- Company Intro Section --- */
+.company-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 40px auto 60px;
+  padding: 30px;
+  background: linear-gradient(
+    145deg,
+    rgba(26, 26, 26, 0.8),
+    rgba(10, 10, 10, 0.9)
+  );
+  border-radius: 20px;
+  border-bottom: 3px solid var(--accent-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.company-intro h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  background: linear-gradient(to right, #fff, #ccc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+.ourteam h1 {
+  font-size: 46px;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  text-align: center;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+.intro-text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #a0a0a0;
+}
+
+.intro-text strong {
+  color: #ffffff;
+}
+
+/* --- Company Stats Section --- */
+.company-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* FORCE 4 equal columns */
+  gap: 20px;
+  align-items: center;
+  margin: 60px auto;
+  padding: 20px;
+  max-width: 1200px;
+}
+
+.stat-card {
+  background: #1a1a1a;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 15px;
+  padding: 30px 20px;
+  width: 100%;
+  /* Fill the grid cell */
+  text-align: center;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0;
+  animation: slideUpFade 0.8s forwards;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card i {
+  font-size: 40px;
+  color: #3b82f6;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.stat-card h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.stat-card p {
+  font-size: 14px;
+  color: #a0a0a0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* Hover Effects */
+.stat-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0px 40px var(--accent-color),
+    inset 0 0px 20px var(--accent-color); /* Inner shadow */
+  border-color: var(--accent-color);
+}
+
+.stat-card:hover i {
+  transform: scale(1.2) rotate(10deg);
+  color: var(--gold-accent);
+}
+
+/* Staggered Animation */
+.stat-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.stat-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.stat-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.stat-card:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+@media (max-width: 768px) {
+  .company-stats {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .stat-card {
+    margin-bottom: 20px;
+  }
+}

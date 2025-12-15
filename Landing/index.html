@@ -8,10 +8,11 @@
     <!-- Icons (using a CDN for simplicity as requested "only html css", but fontawesome is standard) -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     />
 
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../components/style.css" />
   </head>
   <body>
     <!-- Background Glow Effects -->
@@ -164,11 +165,11 @@
 
         <div class="features-grid">
           <div class="feature-card scroll-animate">
-            <i class="fa-solid fa-cart-shopping feature-icon"></i>
-            <h3>Seamless Cart System</h3>
+            <i class="fa-solid fa-car feature-icon"></i>
+            <h3>Sell Your Car</h3>
             <p>
-              Add cars to your cart, view them in the dedicated cart page, and
-              check the total price instantly.
+              Easily add your own car to our listings. Showcase it on our
+              website and reach interested buyers to sell it fast.
             </p>
           </div>
           <div class="feature-card scroll-animate delay-100">
@@ -203,17 +204,9 @@
       </div>
     </section>
 
-    <!-- Simple Footer -->
-    <footer
-      style="
-        padding: 40px 20px;
-        text-align: center;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        color: var(--text-secondary);
-      "
-    >
-      <p>&copy; 2025 Prestige Motors. All rights reserved.</p>
-    </footer>
+    <!-- Dynamic Footer -->
+    <div id="footer-placeholder"></div>
+    <script src="../js/components.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
