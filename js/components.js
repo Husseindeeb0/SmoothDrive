@@ -18,6 +18,24 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         navbarPlaceholder.innerHTML = data;
 
+        // --- Fix navbar links to use correct paths ---
+        const navLinks = navbarPlaceholder.querySelectorAll(".nav-menu a");
+        const logoLink = navbarPlaceholder.querySelector(".logo");
+
+        // Update logo to point to root index.html
+        if (logoLink) {
+          logoLink.href = `${projectRoot}/index.html`;
+        }
+
+        // Update navigation links
+        navLinks.forEach((link) => {
+          const href = link.getAttribute("href");
+          if (href && href.startsWith("./")) {
+            // Convert ./path to absolute path using projectRoot
+            link.href = `${projectRoot}/${href.substring(2)}`;
+          }
+        });
+
         // --- Navbar Shrink Logic (from original script.js) ---
         const header = document.querySelector(".header");
         if (header) {

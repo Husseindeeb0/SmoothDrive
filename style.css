@@ -150,6 +150,7 @@ h3 {
   position: absolute;
   width: 600px;
   height: 600px;
+  max-width: 100vw;
   background: var(--accent-color);
   filter: blur(150px);
   opacity: 0.5;
