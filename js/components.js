@@ -27,12 +27,20 @@ document.addEventListener("DOMContentLoaded", function () {
           logoLink.href = `${projectRoot}/index.html`;
         }
 
-        // Update navigation links
         navLinks.forEach((link) => {
           const href = link.getAttribute("href");
           if (href && href.startsWith("./")) {
-            // Convert ./path to absolute path using projectRoot
             link.href = `${projectRoot}/${href.substring(2)}`;
+          }
+        });
+
+        const navbarImages = navbarPlaceholder.querySelectorAll("img");
+        navbarImages.forEach((img) => {
+          const src = img.getAttribute("src");
+          if (src && src.startsWith("../../")) {
+            img.src = `${projectRoot}/${src.substring(6)}`;
+          } else if (src && src.startsWith("../")) {
+            img.src = `${projectRoot}/${src.substring(3)}`;
           }
         });
 
@@ -65,6 +73,24 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .then((data) => {
         footerPlaceholder.innerHTML = data;
+
+        const footerImages = footerPlaceholder.querySelectorAll("img");
+        footerImages.forEach((img) => {
+          const src = img.getAttribute("src");
+          if (src && src.startsWith("../../")) {
+            img.src = `${projectRoot}/${src.substring(6)}`;
+          } else if (src && src.startsWith("../")) {
+            img.src = `${projectRoot}/${src.substring(3)}`;
+          }
+        });
+
+        const footerLinks = footerPlaceholder.querySelectorAll("a");
+        footerLinks.forEach((link) => {
+          const href = link.getAttribute("href");
+          if (href && href.startsWith("../")) {
+            link.href = `${projectRoot}/${href.substring(3)}`;
+          }
+        });
       })
       .catch((error) =>
         console.error("Error loading footer component:", error)
