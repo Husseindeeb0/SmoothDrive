@@ -24,6 +24,15 @@ td {
   text-align: center;
   font-size: 16px;
   color: var(--text-primary);
+  vertical-align: middle;
+}
+
+/* Specific styling for image-containing cells */
+td:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
 
 tr:hover {
@@ -40,13 +49,14 @@ th {
 
 img {
   width: 120px;
+  height: 120px;
   border-radius: 6px;
   transition: 0.3s;
+  display: block;
 }
 
 img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px var(--accent-glow);
+  transform: scale(1.1);
 }
 
 /* Animations */
@@ -143,6 +153,7 @@ img:hover {
     border: 1px solid #333;
     margin-bottom: 20px;
     border-radius: 10px;
+    margin: 0 20px;
     overflow: hidden;
   }
 

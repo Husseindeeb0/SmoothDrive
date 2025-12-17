@@ -93,10 +93,6 @@ body {
   transition: width 0.3s ease;
 }
 
-/* ---------------------------------- */
-/* 2. PROMOTIONAL MARQUEE BANNER */
-/* ---------------------------------- */
-
 .promo-ticker {
   background-color: #0f1d3f;
   overflow: hidden;
@@ -119,48 +115,63 @@ body {
 .ticker-content {
   display: inline-block;
   animation: marquee 30s linear infinite;
+  white-space: nowrap;
 }
 
-.ticker-content p {
+.ticker-item {
+  display: inline-block;
   color: #ffd700;
   font-size: 0.9em;
-  font-weight: 600;
-  text-transform: uppercase;
-  padding: 0 50px;
+  font-weight: 500;
+  padding: 0 25px;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 4px;
+  margin: 0 5px;
+}
+
+.ticker-item strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.ticker-divider {
+  display: inline-block;
+  color: rgba(255, 215, 0, 0.3);
+  font-size: 1.2em;
+  margin: 0 15px;
+  font-weight: 300;
 }
 
 .banner-link {
-  color: #ffffff;
-  text-decoration: underline;
+  color: #3a86ff;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 8px;
   transition: color 0.2s;
+  border-bottom: 1px solid #3a86ff;
 }
 
 .banner-link:hover {
-  color: #3a86ff;
+  color: #ffffff;
+  border-bottom-color: #ffffff;
 }
 
 @keyframes marquee {
   0% {
-    transform: translate3d(100%, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
-/* ---------------------------------- */
-/* 3. MOBILE RESPONSIVENESS           */
-/* ---------------------------------- */
-
 @media (max-width: 768px) {
-  /* Adjust Global Body Padding for Taller Mobile Header */
   body {
-    padding-top: 160px; /* ~110px (header) + 40px (ticker) + buffer */
+    padding-top: 160px;
   }
 
-  /* 1. Stack Header Elements */
   .header {
-    height: auto; /* Let height grow to fit stacked content */
+    height: auto;
     padding: 10px 0;
   }
 
@@ -169,38 +180,33 @@ body {
     gap: 10px;
   }
 
-  /* 2. Center and Adjust Logo */
   .logo {
     font-size: 1.5em;
   }
-
-  /* 3. Adjust Menu for Mobile (Row layout, smaller text) */
   .nav-menu {
     width: 100%;
     justify-content: center;
-    gap: 15px; /* Reduce gap */
-    flex-wrap: wrap; /* Allow wrapping on very small screens */
+    gap: 15px;
+    flex-wrap: wrap;
   }
 
   .nav-menu li {
-    margin-left: 0; /* Remove left margin in favor of gap */
+    margin-left: 0;
   }
 
   .nav-menu a {
     font-size: 0.9em;
-    padding: 5px 0; /* Reduce vertical padding */
+    padding: 5px 0;
   }
 
   .nav-menu a:hover::after {
-    bottom: 2px; /* Adjust underline position */
+    bottom: 2px;
   }
 
-  /* 4. Reposition Ticker below the Taller Header */
   .promo-ticker {
-    top: 110px; /* Pushed down by stacked header (approx height) */
+    top: 110px;
   }
 
-  /* Adjustments when Header Shrinks (Scrolling) */
   .header-shrink {
     height: auto;
     padding: 5px 0;
