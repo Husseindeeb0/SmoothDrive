@@ -34,11 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const inner = document.querySelector(".carousel-inner");
 
   if (inner) {
-    // We know we have 4 total slides (3 original + 1 clone) and each is 25% wide.
     const totalOriginalSlides = document.querySelectorAll(
       ".slide:not(.clone-slide)"
     ).length;
-    const shiftPercentage = 25; // 100% / 4 slides
+    const shiftPercentage = 25;
 
     const shiftInterval = 3000;
     const transitionDuration = 500;
@@ -48,11 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
     function nextSlide() {
       currentSlide++;
 
-      // Calculate the exact offset percentage
       const offset = currentSlide * -shiftPercentage;
       inner.style.transform = `translateX(${offset}%)`;
 
-      // If we have moved to the cloned slide (index 3)
       if (currentSlide === totalOriginalSlides) {
         // Wait for the animated transition (0.5s) to finish
         setTimeout(() => {

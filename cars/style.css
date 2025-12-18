@@ -180,23 +180,18 @@ body {
 }
 
 .content-card {
-  /* CRITICAL FIX: Ensure cards use the lighter Surface Color for contrast */
   background-color: var(--surface-color);
   padding: 35px;
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
   transition: box-shadow 0.3s ease;
-  /* Using darkest BG color as a subtle border for separation */
   border: 1px solid var(--bg-color);
 }
 
-/* Internal Card Headings */
 .content-card h3 {
-  /* Using Gold Accent for internal card headings */
   color: var(--gold-accent);
 }
 
-/* Pros and Cons Colors (Functional) */
 .pros h3 {
   color: var(--color-success);
 }
@@ -205,14 +200,12 @@ body {
   color: var(--color-error);
 }
 
-/* TECHNICAL SPECS LAYOUT (Side-by-side) */
 .specs-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
 }
 
-/* Pros and Cons Layout */
 .features-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -235,12 +228,10 @@ body {
   content: "→";
   position: absolute;
   left: 0;
-  /* Using Gold Accent for list markers */
   color: var(--gold-accent);
   font-weight: bold;
 }
 
-/* 4. Dynamic Continuous Fade In/Out Animation (Unchanged) */
 .fade-item {
   opacity: 0;
   transform: translateY(30px);

@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
           // Reset or redirect logic here
-          window.location.href = "../Landing/index.html"; // Redirect example
+          window.location.href = "../index.html"; // Redirect example
         }, 1000);
       }, 1500);
     });

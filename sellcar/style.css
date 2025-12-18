@@ -83,7 +83,7 @@ a:hover {
 }
 
 h1 {
-  font-size: 2.5em;
+  font-size: 2rem;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -2px;
@@ -93,7 +93,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--text-primary); /* H2 is white globally */
 }

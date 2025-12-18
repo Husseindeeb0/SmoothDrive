@@ -46,6 +46,19 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         });
 
+        // Fix banner links in promo ticker
+        const bannerLinks = navbarPlaceholder.querySelectorAll(".banner-link");
+        bannerLinks.forEach((link) => {
+          const href = link.getAttribute("href");
+          if (href && href.startsWith("./")) {
+            link.href = `${projectRoot}/${href.substring(2)}`;
+          } else if (href && href.startsWith("../")) {
+            link.href = `${projectRoot}/${href.substring(3)}`;
+          } else if (href && href.startsWith("../../")) {
+            link.href = `${projectRoot}/${href.substring(6)}`;
+          }
+        });
+
         // --- Navbar Shrink Logic (from original script.js) ---
         const header = document.querySelector(".header");
         if (header) {
